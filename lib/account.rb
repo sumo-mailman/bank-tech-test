@@ -10,21 +10,23 @@ class Account
 
   def deposit(amount, date)
     @balance += amount
-    @transactions << {balance: @balance, credit: amount, date: date}
+    record_deposit(amount,date)
   end
-
-  # Extract Method 
+  
   def withdraw(amount, date)
     withdraw_balance = @balance -= amount
-    add_withdraw_transaction(amount, date) 
+    record_withdrawal(amount, date) 
   end
 
 private
 
-  def add_withdraw_transaction(amount, date) 
+  def record_withdrawal(amount, date) 
     transactions << {balance: @balance, debit: amount, date: date}
   end 
 
+  def record_deposit(amount,date)
+    @transactions << {balance: @balance, credit: amount, date: date}
+  end 
 
   def show_statement
     "date || credit || debit || balance"
