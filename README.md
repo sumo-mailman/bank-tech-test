@@ -12,6 +12,21 @@
 
 ```
 
+## Example Input
+
+a = Account.new
+a.deposit(1000, '10/01/2023')
+a.deposit(2000, '13/01/2023')
+a.withdraw(500, '14/01/2023')
+a.display_summary
+
+## Example Output Format
+
+date || credit || debit || balance
+14/01/2023 || || 500.00 || 2500.00
+13/01/2023 || 2000.00 || || 3000.00
+10/01/2023 || 1000.00 || || 1000.00
+
 ## User Stories
 
 As a potential customer,
@@ -29,13 +44,6 @@ I would like to withdraw my money
 As a bank customer,
 So that I can know my previous transactions
 I would like to show bank statement with transaction: date, amount and balance
-
-## Output Format
-
-date || credit || debit || balance
-14/01/2023 || || 500.00 || 2500.00
-13/01/2023 || 2000.00 || || 3000.00
-10/01/2023 || 1000.00 || || 1000.00
 
 ## Domain model:
 
