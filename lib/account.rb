@@ -11,11 +11,13 @@ class Account
   end
 
   def deposit(amount, date)
+    
     update_balance(amount, date)
     record_transaction(amount, date)
   end
 
   def withdraw(amount, date) 
+    raise "Insufficient balance to withdraw" if amount > @balance 
     update_balance(-amount, date)
     record_transaction(-amount, date)
   end 
