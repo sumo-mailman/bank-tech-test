@@ -16,6 +16,8 @@ date || credit || debit || balance
 # Edge Cases
 
 Can't withdraw > balance amount, raise error if so
+Must submit a number for a deposit/withdrawl or error
+Must submit a date in relevant format
 
 require './lib/account.rb'
 
