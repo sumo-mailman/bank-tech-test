@@ -1,31 +1,55 @@
-Givena client makes a deposit of 1000 on 10-01-2023Anda deposit of 2000 on 13-01-2023Anda withdrawal of 500 on 14-01-2023
-Whenshe prints her bank statementThenshe would see
+# Bank Tech Test
 
-account = Account.new
-account.deposit(amount: 500, date: 10-01-2023)
-account.deposit(amount: 2000, date: 13-01-2023)
-account.withdraw(amount: 500, date: 14-01-2023)
-account.show_statement
+## Test Coverage
 
-Print:
+- 100% test coverage
+- 10 examples, 0 failures
+
+## To run file
+
+```
+> bundle install
+
+```
+
+## User Stories
+
+As a potential customer,
+So that I can become a customer
+I would like to create a bank account
+
+As a bank customer,
+So that I can save money
+I would like to deposit my money.
+
+As a bank customer,
+So that I can spend money
+I would like to withdraw my money
+
+As a bank customer,
+So that I can know my previous transactions
+I would like to show bank statement with transaction: date, amount and balance
+
+## Output Format
+
 date || credit || debit || balance
 14/01/2023 || || 500.00 || 2500.00
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 
-# Edge Cases
+## Domain model:
 
-Can't withdraw > balance amount, raise error if so
-Must submit a number for a deposit/withdrawl or error
-Must submit a date in relevant format
+<p style="text-align: center">
+  <img src="https://i.imgur.com/yjSwiEN.jpg">
+</p>
 
-require './lib/account.rb'
+## Edge Cases
 
-a = Account.new
-a.deposit(500, '10-01-2023')
-a.withdraw(2000, '13-01-2023')
-a.withdraw(1000, '14-01-2023')
+- entering dates which are not in an appropriate date format
+- trying to withdraw money when there's insufficient balance
 
-a = Account.new
-t = Transaction.new
-t.deposit(500, '10-01-2023')
+## Pending:
+
+1. How to extract more methods from account. Potentially a display/formatting of the summary in a separate class?
+
+2. Additional tests for further edge cases

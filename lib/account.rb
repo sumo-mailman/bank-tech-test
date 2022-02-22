@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'date'
 require_relative 'transaction'
 
@@ -15,14 +13,12 @@ class Account
 
   def deposit(amount, date)
     raise 'Incorrect date format, must use DD/MM/YYYY' if valid_date(date).nil?
-
     update_balance(amount)
     record_transaction(amount, date)
   end
 
   def withdraw(amount, date)
     raise 'Insufficient balance to withdraw' if amount > @balance
-
     update_balance(-amount)
     record_transaction(-amount, date)
   end

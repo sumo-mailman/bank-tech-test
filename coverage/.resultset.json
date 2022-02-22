@@ -80,8 +80,6 @@
       },
       "/Users/Josh/Projects/week_8/bank-tech-test/lib/account.rb": {
         "lines": [
-          null,
-          null,
           1,
           1,
           null,
@@ -97,14 +95,12 @@
           null,
           1,
           6,
-          null,
           5,
           5,
           null,
           null,
           1,
           3,
-          null,
           2,
           2,
           null,
@@ -179,6 +175,6 @@
         ]
       }
     },
-    "timestamp": 1645570916
+    "timestamp": 1645571914
   }
 }
