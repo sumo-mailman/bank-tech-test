@@ -6,6 +6,10 @@ class Account
 
   def initialize 
     @balance = DEFAULT_BALANCE 
+  end
+
+
+  def deposit(amount, date)
+    @balance += amount
   end 
-  
 end
