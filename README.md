@@ -22,7 +22,6 @@ require './lib/account.rb'
 a = Account.new
 a.deposit(500, '10-01-2023')
 a.withdraw(2000, '13-01-2023')
-a.balance
 a.withdraw(1000, '14-01-2023')
 
 a = Account.new
