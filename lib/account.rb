@@ -13,7 +13,7 @@ class Account
   end
 
   def deposit(amount, date)
-    raise 'Incorrect date submitted' if valid_date(date) == nil
+    raise 'Incorrect date format, must use DD/MM/YYYY' if valid_date(date) == nil
     update_balance(amount)
     record_transaction(amount, date)
   end
@@ -53,9 +53,8 @@ class Account
 
   def show_transactions
     @transactions.each do |transaction|
-      puts "#{transaction.date} || #{amount unless amount.negative?} || 
-      #{-amount unless amount.positive?} || #{transaction.balance}"
+      amount = transaction.amount
+      puts "#{transaction.date} || #{amount unless amount.negative?} || #{-amount unless amount.positive?} || #{transaction.balance}"
     end
   end
 end
-
