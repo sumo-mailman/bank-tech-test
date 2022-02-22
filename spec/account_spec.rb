@@ -5,6 +5,11 @@ describe Account do
     expect(subject.balance).to eq 0
   end
 
+  it 'stores the transactions' do 
+    subject.deposit(1000, '10-01-2023')
+    subject.withdraw(500, '14/01/2023')
+    expect(subject.transactions.length).to eq 2
+  end 
 
   describe '#deposit' do
     it 'can deposit money' do 
@@ -18,6 +23,7 @@ describe Account do
       subject.deposit(1000, '10-01-2023')
       subject.withdraw(500, '14/01/2023')
       expect(subject.balance).to eq 500
+
     end 
   end
 

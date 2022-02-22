@@ -21,14 +21,26 @@ class Account
     record_transaction(-amount, date)
   end 
 
+  def display_summary
+    puts "date || credit || debit || balance"
+    
+    @transactions.each do |transaction| 
+      amount = transaction.amount 
+      puts "#{transaction.date} || #{amount unless amount < 0} || #{-amount unless amount > 0} || #{transaction.balance}"
+    end 
+
+  end 
+
+  private
+
   def record_transaction(amount, date)
     @transactions << Transaction.new(amount, date, @balance)
   end
 
 end
 
-# a = Account.new
-# a.deposit(1000, '10/01/2023')
-# a.deposit(2000, '13/01/2023')
-# a.withdraw(500, '14/01/2023')
-# print a.transactions
+a = Account.new
+a.deposit(1000, '10/01/2023')
+a.deposit(2000, '13/01/2023')
+a.withdraw(500, '14/01/2023')
+a.display_summary
