@@ -10,12 +10,12 @@ describe Account do
   describe '#deposit' do 
 
     it 'can deposit money' do 
-      subject.deposit(500, '10/01/2023')
+      subject.deposit(amount: 500, date: '10/01/2023')
       expect(subject.balance).to eq 500
     end 
 
     it 'stores transaction details' do
-      subject.deposit(500, '10/01/2023')
+      subject.deposit(amount: 500, date: '10/01/2023')
       expect(subject.transactions.last).to include(:balance => 500, :date => '10/01/2023', :credit => 500)
     end
   end 
@@ -25,14 +25,14 @@ describe Account do
 
     context 'has sufficient balance' do
       it 'can withdraw money' do 
-        subject.deposit(500, '10/01/2023')
-        subject.withdraw(500, '14/01/2023')
+        subject.deposit(amount: 500, date: '10/01/2023')
+        subject.withdraw(amount: 500, date: '14/01/2023')
         expect(subject.balance).to eq 0
       end
 
       it 'stores transaction details' do 
-        subject.deposit(500, '10/01/2023')
-        subject.withdraw(500, '14/01/2023')
+        subject.deposit(amount: 500, date: '10/01/2023')
+        subject.withdraw(amount: 500, date: '14/01/2023')
         expect(subject.transactions.length).to be(2)
         expect(subject.transactions.last).to include(:balance => 0, :date => '14/01/2023', :debit => 500)
       end
@@ -40,7 +40,7 @@ describe Account do
 
     context 'does not have sufficient balance' do
       it 'cannot withdraw money' do
-        expect { subject.withdraw(500, '14/01/2023') }.to raise_error 'Insufficient balance to withdraw'
+        expect { subject.withdraw(amount: 500, date: '14/01/2023') }.to raise_error 'Insufficient balance to withdraw'
       end
     end 
 

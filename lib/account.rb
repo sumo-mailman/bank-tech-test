@@ -8,23 +8,18 @@ class Account
     @transactions = []
   end 
 
-  def deposit(amount, date)
+  def deposit(amount:, date:)
     @balance += amount
     record_deposit(amount,date)
   end
   
-  def withdraw(amount, date)
+  def withdraw(amount:, date:)
     raise "Insufficient balance to withdraw" if @balance < amount
     @balance -= amount
     record_withdrawal(amount, date) 
   end
 
-  def show_statement
-    puts "date || credit || debit || balance"
-    @transactions.reverse.each do |transaction|
-      puts "#{transaction[:date]}|| #{transaction[:credit]}|| #{transaction[:debit]} || #{transaction[:balance]}"
-    end 
-  end 
+
 
 private
 
@@ -34,6 +29,13 @@ private
 
   def record_deposit(amount, date)
     @transactions << {balance: @balance, credit: amount, date: date}
+  end 
+
+  def show_statement
+    puts "date || credit || debit || balance"
+    @transactions.reverse.each do |transaction|
+      puts "#{transaction[:date]}|| #{transaction[:credit]}|| #{transaction[:debit]} || #{transaction[:balance]}"
+    end 
   end 
 
 end 
