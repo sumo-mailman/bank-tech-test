@@ -12,11 +12,21 @@ describe Account do
   end 
 
   describe '#deposit' do
-    it 'can deposit money' do 
-      subject.deposit(1000, '10-01-2023')
-      expect(subject.balance).to eq 1000
-    end 
-  end
+
+    context 'can deposit money' do
+      it 'can deposit money' do 
+        subject.deposit(1000, '10-01-2023')
+        expect(subject.balance).to eq 1000
+      end
+
+      it 'can only enter in dates in the correct format' do
+        date = '10-01-2023'
+        subject.deposit(1000, date)
+        expect(date).to match(/\d\d-\d\d-\d\d/)
+        expect(subject.balance).to eq 1000
+      end
+    end
+  end 
 
   describe '#withdraw' do
     context 'has balance less than withdraw amount' do 
