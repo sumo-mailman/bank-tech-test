@@ -13,6 +13,14 @@ describe Account do
     end 
   end
 
+  describe '#deposit' do
+    it 'can withdraw money' do 
+      subject.deposit(1000, '10-01-2023')
+      subject.withdraw(500, '14/01/2023')
+      expect(subject.balance).to eq 500
+    end 
+  end
+
   describe '#record_transaction' do
     it 'can record transactions' do 
       subject.deposit(1000, '10-01-2023')
