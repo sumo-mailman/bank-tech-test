@@ -22,14 +22,18 @@ class Account
   end 
 
   def display_summary
-    puts "date || credit || debit || balance"
+    header 
     
     @transactions.each do |transaction| 
       amount = transaction.amount 
       puts "#{transaction.date} || #{amount unless amount < 0} || #{-amount unless amount > 0} || #{transaction.balance}"
-    end 
-
+    end
   end 
+
+  def header
+    puts "date || credit || debit || balance"
+  end 
+
 
   private
 

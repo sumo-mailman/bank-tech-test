@@ -33,4 +33,10 @@ describe Account do
       expect(subject.transactions.last).to_not contain_exactly(1000, '10-01-2023')
     end 
   end 
+
+  describe '#display' do
+    it 'displays the header' do 
+      expect(subject.header).to eq(puts "date || credit || debit || balance")
+    end 
+  end 
 end 
