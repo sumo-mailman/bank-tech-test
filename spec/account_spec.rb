@@ -12,4 +12,11 @@ describe Account do
       expect(subject.balance).to eq 1000
     end 
   end
+
+  describe '#record_transaction' do
+    it 'can record transactions' do 
+      subject.deposit(1000, '10-01-2023')
+      expect(subject.transactions.last).to_not contain_exactly(1000, '10-01-2023')
+    end 
+  end 
 end 
