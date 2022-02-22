@@ -34,9 +34,9 @@ describe Account do
     end 
   end 
 
-  describe '#display' do
-    it 'displays the header' do 
-      expect(subject.header).to eq(puts "date || credit || debit || balance")
-    end 
-  end 
+  # describe '#display_summary' do
+  #   it 'displays the header' do 
+  #     expect(subject.display_summary).to contain(puts "date || credit || debit || balance")
+  #   end 
+  # end 
 end 

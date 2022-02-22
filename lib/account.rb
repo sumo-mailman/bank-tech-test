@@ -10,36 +10,42 @@ class Account
     @transactions = []
   end
 
-
   def deposit(amount, date)
-    @balance += amount
+    update_balance(amount, date)
     record_transaction(amount, date)
   end
 
   def withdraw(amount, date) 
-    @balance += -amount
+    update_balance(-amount, date)
     record_transaction(-amount, date)
   end 
 
   def display_summary
-    header 
-    
-    @transactions.each do |transaction| 
-      amount = transaction.amount 
-      puts "#{transaction.date} || #{amount unless amount < 0} || #{-amount unless amount > 0} || #{transaction.balance}"
-    end
-  end 
-
-  def header
-    puts "date || credit || debit || balance"
+    show_header
+    show_transactions
   end 
 
 
   private
 
+  def update_balance(amount, date)
+    @balance += amount
+  end 
+
   def record_transaction(amount, date)
     @transactions << Transaction.new(amount, date, @balance)
   end
+
+  def show_header
+    puts "date || credit || debit || balance"
+  end 
+
+  def show_transactions
+    @transactions.each do |transaction| 
+      amount = transaction.amount 
+      puts "#{transaction.date} || #{amount unless amount < 0} || #{-amount unless amount > 0} || #{transaction.balance}"
+    end
+  end 
 
 end
 
